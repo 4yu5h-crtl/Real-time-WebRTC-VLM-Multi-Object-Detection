@@ -1,0 +1,32 @@
+{
+  "mode": "wasm",
+  "duration_ms": 30000,
+  "counts": {
+    "e2e": 150,
+    "server": 0,
+    "fps": 150,
+    "bw": 30
+  },
+  "latency_e2e": {
+    "median": 85.2,
+    "p95": 142.8
+  },
+  "latency_server": {
+    "median": 0,
+    "p95": 0
+  },
+  "fps_processed": {
+    "median": 5.1,
+    "p95": 5.8
+  },
+  "uplink_kbps": {
+    "median": 245.6,
+    "p95": 312.4
+  },
+  "downlink_kbps": {
+    "median": 189.2,
+    "p95": 256.7
+  }
+}
+
+

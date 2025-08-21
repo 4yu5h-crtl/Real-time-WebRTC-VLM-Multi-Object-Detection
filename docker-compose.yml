@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  signaling:
+    build: ./apps/signaling
+    container_name: webrtc-vlm-signaling
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  frontend:
+    build: ./apps/frontend
+    container_name: webrtc-vlm-frontend
+    environment:
+      - NEXT_TELEMETRY_DISABLED=1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - signaling
+    restart: unless-stopped
+
+  inference:
+    build: ./apps/inference
+    container_name: webrtc-vlm-inference
+    environment:
+      - MODEL_PATH=/app/../frontend/public/models/model.onnx
+      - PORT=8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - frontend
+    restart: unless-stopped
+
+
