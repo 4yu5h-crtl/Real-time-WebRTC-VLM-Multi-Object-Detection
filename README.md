@@ -259,7 +259,7 @@ Exported `metrics.json` contains: median & P95 E2E latency, processed FPS, uplin
 See the full report: [report.md](report.md) — design choices, low-resource mode, and backpressure policy.
 
 ### Loom Video
-Add a 1-minute Loom link here demonstrating the phone→browser overlay and metrics: [Loom Video](https://www.loom.com/share/3fd5f7f34df64982a01ef919d90043bf?sid=df5b5baf-9c97-438e-a939-750b681d7de1)
+This is the video demonstrating the phone→browser overlay and metrics: [Loom Video](https://www.loom.com/share/3fd5f7f34df64982a01ef919d90043bf?sid=df5b5baf-9c97-438e-a939-750b681d7de1)
 
 ### Manual Testing
 1. **Service health**: All indicators green
