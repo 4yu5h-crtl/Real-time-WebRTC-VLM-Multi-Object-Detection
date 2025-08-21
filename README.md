@@ -4,6 +4,8 @@ Real-time phone-to-browser WebRTC streaming with multi-object detection using YO
 
 ## 🚀 Quick Start
 
+Note: For design details and rationale, see the full report: [report.md](report.md)
+
 ### One-Command Startup
 ```bash
 # Local (Windows)
@@ -72,7 +74,7 @@ Phone Camera → WebRTC → Browser → Inference → Overlays
 ### Quick Setup
 1. **Clone repository**
    ```bash
-   git clone https://github.com/4yu5h-crtl/Real-time-WebRTC-VLM-Multi-Object-Detection.git
+   git clone <repository-url>
    cd webrtc-vlm
    ```
 2. Go to Deployment and choose Local (Windows start.bat) or Docker.
@@ -257,7 +259,7 @@ Server → client JSON per detection result (normalized [0..1] coordinates):
 Exported `metrics.json` contains: median & P95 E2E latency, processed FPS, uplink/downlink kbps, plus server and network latency summaries.
 
 ### Design Report
-See `report.md` for design choices, low-resource mode, and backpressure policy.
+See the full report: [report.md](report.md) — design choices, low-resource mode, and backpressure policy.
 
 ### Loom Video
 Add a 1-minute Loom link here demonstrating the phone→browser overlay and metrics: <ADD_LINK_HERE>
