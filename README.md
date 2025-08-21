@@ -6,19 +6,16 @@ Real-time phone-to-browser WebRTC streaming with multi-object detection using YO
 
 ### One-Command Startup
 ```bash
-# Windows
+# Local (Windows)
 start.bat
-```
 
-
-On Windows, `start.bat` launches all services (Signaling, Frontend, Inference) in separate terminals and sets up a Python virtual environment automatically. Choose WASM or Server mode from the homepage viewer links.
-
-### Docker (one command)
-```bash
+# Docker (all platforms)
 docker-compose up --build
 ```
 
-**Full setup guide**: See the start.bat file for detailed instructions.
+On Windows, `start.bat` launches all services (Signaling, Frontend, Inference) in separate terminals and sets up a Python virtual environment automatically. Choose WASM or Server mode from the homepage viewer links. With Docker, the same services start inside containers on the same ports.
+
+**Full setup guide**: See Deployment below.
 
 ## 📱 How It Works
 
@@ -31,8 +28,8 @@ docker-compose up --build
 ## 🎯 Features
 
 ### Dual Inference Modes
-- **🔧 WASM Mode**: Browser-based inference (low resource). Use: `MODE=wasm ./start.sh`
-- **🚀 Server Mode**: Backend inference (high performance). Use: `MODE=server ./start.sh`
+- **🔧 WASM Mode**: Browser-based inference (low resource).
+- **🚀 Server Mode**: Backend inference (high performance).
 
 ### Real-Time Capabilities
 - **Live streaming** with sub-100ms latency
@@ -78,21 +75,7 @@ Phone Camera → WebRTC → Browser → Inference → Overlays
    git clone <repository-url>
    cd webrtc-vlm
    ```
-
-2. **Start services**
-   ```bash
-   # Windows
-   start.bat
-   
-   # Linux/Mac
-   ./start.sh
-   ```
-
-3. **Open browser** to `http://localhost:3000`
-
-4. **Scan QR code** with phone camera
-
-5. **Start detection** in viewer page
+2. Go to Deployment and choose Local (Windows start.bat) or Docker.
 
 ## 🔧 Configuration
 
@@ -140,23 +123,38 @@ PROXY_PORT=8088
 
 ## 🚀 Deployment
 
-### Local Development
-```bash
-# Install dependencies
-cd apps/signaling && npm install
-cd apps/frontend && npm install
-cd apps/inference && pip install -r requirements.txt
+### Path A: Local (Windows) using start.bat
+1. Double-click `start.bat` (or run it in PowerShell/CMD). It will:
+   - Install Node deps for signaling and frontend if missing
+   - Create/activate a Python venv for inference and install requirements
+   - Launch three terminals: signaling (ws://localhost:8080), frontend (http://localhost:3000), inference (http://localhost:8000)
+2. On your laptop, open `http://<your-laptop-ip>:3000` (not `localhost`) so your phone can reach it over Wi‑Fi.
+   - Find your IP on Windows: `ipconfig` → look for IPv4 Address (e.g., `192.168.x.x`).
+3. Scan the Sender QR with your phone and allow camera.
+4. Open a Viewer (WASM or Server) from the homepage.
 
-# Start services
-npm start          # Signaling
-npm run dev        # Frontend
-python main.py     # Inference
+### Path B: Docker (cross‑platform)
+Prerequisites: Install Docker Desktop (Windows/macOS) or Docker Engine + Compose (Linux).
+
+Steps:
+```bash
+# From the repo root
+docker-compose up --build
 ```
 
-### Production Deployment
-- **Windows**: Use start.bat with proper environment setup
-- **Linux/Mac**: Use start.sh with systemd services
-- **Cloud**: Deploy individual services to cloud platforms
+What this does:
+- Builds images for frontend, signaling, and inference
+- Starts the stack on ports 3000 (frontend), 8080 (signaling), 8000 (inference)
+
+Validate:
+- Open `http://localhost:3000`
+- Scan the Sender QR with your phone
+- Open a Viewer (WASM or Server) and observe overlays
+
+Stopping:
+```bash
+docker-compose down
+```
 
 ## 🔍 Troubleshooting
 
@@ -210,10 +208,9 @@ cd bench
 ## ✅ Step-by-step Run Instructions
 
 1. Clone repo and start services:
-   - Windows: double-click `start.bat`
-   - macOS/Linux: `./start.sh` (defaults to `MODE=wasm`) or `docker-compose up --build`
-   - Optional: `MODE=server ./start.sh` for server inference mode
-2. Open `http://localhost:3000` on your laptop; scan the QR for the Sender with your phone
+   - Local (Windows): double-click `start.bat`
+   - Docker (all platforms): `docker-compose up --build`
+2. On your laptop, open `http://<your-laptop-ip>:3000` (not `localhost`) and scan the QR with your phone
 3. Allow camera permission on phone; you should see the phone video mirrored with overlays
 4. Open a Viewer: WASM or Server mode from the homepage buttons
 5. Run a 30s bench and export metrics:
