@@ -4,8 +4,6 @@ Real-time phone-to-browser WebRTC streaming with multi-object detection using YO
 
 ## 🚀 Quick Start
 
-Note: For design details and rationale, see the full report: [report.md](report.md)
-
 ### One-Command Startup
 ```bash
 # Local (Windows)
@@ -261,7 +259,7 @@ Exported `metrics.json` contains: median & P95 E2E latency, processed FPS, uplin
 See the full report: [report.md](report.md) — design choices, low-resource mode, and backpressure policy.
 
 ### Loom Video
-Add a 1-minute Loom link here demonstrating the phone→browser overlay and metrics: <ADD_LINK_HERE>
+Add a 1-minute Loom link here demonstrating the phone→browser overlay and metrics: [Loom Video](https://www.loom.com/share/3fd5f7f34df64982a01ef919d90043bf?sid=df5b5baf-9c97-438e-a939-750b681d7de1)
 
 ### Manual Testing
 1. **Service health**: All indicators green
