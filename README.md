@@ -275,6 +275,3 @@ Add a 1-minute Loom link here demonstrating the phone→browser overlay and metr
 - **Multiple streams**: Multiple phones to one viewer
 - **Network stress**: High latency conditions
 - **Long duration**: Extended usage testing
-
-
-**Ready to get started?** Simply run `start.bat` (Windows) or `./start.sh` (Linux/Mac) to launch the system!
