@@ -75,7 +75,6 @@ Phone Camera → WebRTC → Browser → Inference → Overlays
 1. **Clone repository**
    ```bash
    git clone https://github.com/4yu5h-crtl/Real-time-WebRTC-VLM-Multi-Object-Detection.git
-   cd webrtc-vlm
    ```
 2. Go to Deployment and choose Local (Windows start.bat) or Docker.
 
